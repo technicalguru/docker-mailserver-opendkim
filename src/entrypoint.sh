@@ -8,9 +8,6 @@ IMAGE_TEMPLATES=$IMAGE_HOME/templates
 if [[ -z "${DKIM_DOMAIN}" ]]; then
 	DKIM_DOMAIN=localdomain
 fi
-if [[ -z "${DKIM_PORT}" ]]; then
-	DKIM_PORT=41001
-fi
 if [[ -z "${DKIM_DB_HOST}" ]]; then
 	DKIM_DB_HOST=localhost
 fi
@@ -59,7 +56,6 @@ copy_template_file() {
 		cp $TMP_SRC $TMP_DST
 
 		replace_var $TMP_DST 'DKIM_DOMAIN'
-		replace_var $TMP_DST 'DKIM_PORT'
 		replace_var $TMP_DST 'DKIM_DB_HOST'
 		replace_var $TMP_DST 'DKIM_DB_NAME'
 		replace_var $TMP_DST 'DKIM_DB_USER'
