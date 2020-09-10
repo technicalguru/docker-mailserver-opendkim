@@ -84,7 +84,7 @@ Once you have started your OpenDKIM container successfully, it is now time to cr
        you to use different keys e.g. for subdomains and individual mail addresses. You would need to change the SQL commands accordingly (Table `dkim_keys` decides
        which key will be used. You can use full mail addresses in column `author` then.)
 
-# Additional Postfix/Dovecot customization
+# Additional OpenDKIM customization
 You can further customize the OpenDKIM configuration files. Please follow these instructions:
 
 1. Check the `/usr/local/mailserver/templates` folder for already existing customizations. 
