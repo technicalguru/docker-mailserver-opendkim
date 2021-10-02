@@ -1,12 +1,12 @@
-FROM eu.gcr.io/long-grin-186810/rs-php:7.4.4-apache-2.4.38.0
+FROM technicalguru/rs-php:7.4.24-apache-2.4.48.1
 LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 
 ENV DKIM_VERSION="2.11.0"
 ENV DKIM_REVISION="0"
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y --no-install-recommends \
     wget \
-    opendkim=2.11.0~alpha-12 \
-    opendkim-tools=2.11.0~alpha-12 \
+    opendkim=2.11.0~beta2-4 \
+    opendkim-tools=2.11.0~beta2-4 \
     libopendbx1-mysql \
     default-mysql-client \
 	vim \
