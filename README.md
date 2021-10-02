@@ -13,7 +13,7 @@ Related images:
 # Tags
 The following versions are available from DockerHub. The image tag matches the Postfix version.
 
-* [2.11.0.0, 2.11.0, 2.11, 2, latest](https://github.com/technicalguru/docker-mailserver-opendkim/tree/v2.11.0.0) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-opendkim/blob/2.11.0.0/Dockerfile)
+* [2.11.0.1, 2.11.0, 2.11, 2, latest](https://github.com/technicalguru/docker-mailserver-opendkim/tree/v2.11.0.1) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-opendkim/blob/2.11.0.1/Dockerfile)
 
 # Features
 * Bootstrap from scratch: See more information below.
