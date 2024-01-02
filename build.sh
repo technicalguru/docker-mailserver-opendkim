@@ -1,1 +1,1 @@
-docker build -t technicalguru/mailserver-dkim:latest .
+docker build --progress=plain -t technicalguru/mailserver-dkim:latest .

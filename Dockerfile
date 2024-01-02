@@ -1,12 +1,13 @@
-FROM technicalguru/php:8.2.5-apache-2.4.56.0
+FROM technicalguru/php:8.2.14-apache-2.4.57.0
 LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 
 ENV DKIM_VERSION="2.11.0"
 ENV DKIM_REVISION="0"
+ENV DKIM_PACKAGE="2.11.0~beta2-8+deb12u1"
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y --no-install-recommends \
     wget \
-    opendkim=2.11.0~beta2-4 \
-    opendkim-tools=2.11.0~beta2-4 \
+    opendkim=${DKIM_PACKAGE} \
+    opendkim-tools=${DKIM_PACKAGE} \
     libopendbx1-mysql \
     default-mysql-client \
 	vim \
