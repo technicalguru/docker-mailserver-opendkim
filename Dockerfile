@@ -1,4 +1,4 @@
-FROM technicalguru/php:8.2.18-apache-2.4.57.0
+FROM technicalguru/php:8.2.24-apache-2.4.62.0
 LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 
 ENV DKIM_VERSION="2.11.0"
