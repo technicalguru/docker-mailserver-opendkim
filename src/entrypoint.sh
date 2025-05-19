@@ -127,7 +127,7 @@ create_database() {
 }
 
 create_tables() {
-	FOO=$( echo "select * from $DKIM_DB_NAME.internal_hosts where hostname='localhost';" | mysql -u root --password=$DKIM_SETUP_PASS -h $DKIM_DB_HOST --skip-column-names)
+	FOO=$( echo "select * from $DKIM_DB_NAME.internal_hosts where hostname='localhost';" | mysql -u $DKIM_DB_USER --password=$DKIM_DB_PASS -h $DKIM_DB_HOST --skip-column-names $DKIM_DB_NAME)
 	if [[ -z "$FOO" ]]
 	then
 		mysql -u $DKIM_DB_USER --password=$DKIM_DB_PASS -h $DKIM_DB_HOST $DKIM_DB_NAME <$IMAGE_HOME/create_tables.sql
