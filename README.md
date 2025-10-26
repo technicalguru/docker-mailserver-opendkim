@@ -13,7 +13,11 @@ Related images:
 # Tags
 The following versions are available from DockerHub. The image tag matches the Postfix version.
 
-* [2.11.0.9, 2.11.0, 2.11, 2, latest](https://github.com/technicalguru/docker-mailserver-opendkim/tree/v2.11.0.9) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-opendkim/blob/2.11.0.9/Dockerfile)
+* [2.11.0.10, 2.11.0, 2.11, 2, latest](https://github.com/technicalguru/docker-mailserver-opendkim/tree/v2.11.0.10) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-opendkim/blob/2.11.0.10/Dockerfile)
+
+# Supported Platforms
+* linux/amd64
+* linux/arm64
 
 # Features
 * Bootstrap from scratch: See more information below.
@@ -63,7 +67,7 @@ Once you have started your OpenDKIM container successfully, it is now time to cr
 1. For each of your domains `DOMAIN` perform the following steps:
     1. Create a temporary directory: `mkdir /etc/opendkim/keys/$DOMAIN`
     2. Create the actual key: `opendkim-genkey -b 2048 -d $DOMAIN -D /etc/opendkim/keys/$DOMAIN -s default -v`. You will find public and private key in the temporary directory.
-    3. Insert public and private key into your database by signing in: `mysql -u opendkim -p opendkim` and enter your database password.
+    3. Insert public and private key into your database by signing in: `mysql -u opendkim -p opendkim` (*) and enter your database password.
        Then enter these SQL statement and hit enter for each of them:
 
         ```
@@ -73,6 +77,8 @@ Once you have started your OpenDKIM container successfully, it is now time to cr
         INSERT INTO `ignore_list` (`hostname`) VALUES ('*@$DOMAIN');
         INSERT INTO `internal_hosts` (`hostname`) VALUES ('*@$DOMAIN');
         ```
+
+       (*) You might need to add the parameter ``-h mailserver-database`` when using the docker-compose environment. 
 
     4. Insert the *Public Key* as described by step 2 output into your DNS TXT record for the domain. It can look like this:
 

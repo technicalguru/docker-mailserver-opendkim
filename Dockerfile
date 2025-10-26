@@ -1,13 +1,10 @@
-FROM technicalguru/php:8.4.7-apache-2.4.62.0
+FROM technicalguru/php:8.4.13-apache-2.4.65.0
 LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 
-ENV DKIM_VERSION="2.11.0"
-ENV DKIM_REVISION="0"
-ENV DKIM_PACKAGE="2.11.0~beta2-8+deb12u1"
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y --no-install-recommends \
     wget \
-    opendkim=${DKIM_PACKAGE} \
-    opendkim-tools=${DKIM_PACKAGE} \
+    opendkim \
+    opendkim-tools \
     libopendbx1-mysql \
     default-mysql-client \
 	vim \
@@ -42,14 +39,14 @@ EXPOSE 80
 #CMD ["/usr/local/mailserver/loop.sh"]
 CMD ["/usr/local/mailserver/entrypoint.sh"]
 
+RUN echo "OpenDKIM version: $(opendkim -V)"
+
 #####################################################################
 #  Image OCI labels
 #####################################################################
 ARG ARG_CREATED
 ARG ARG_URL=https://github.com/technicalguru/docker-mailserver-dkim
 ARG ARG_SOURCE=https://github.com/technicalguru/docker-mailserver-dkim
-ARG ARG_VERSION="${DKIM_VERSION}.${DKIM_REVISION}"
-ARG ARG_REVISION="${DKIM_REVISION}"
 ARG ARG_VENDOR=technicalguru
 ARG ARG_TITLE=technicalguru/mailserver-dkim
 ARG ARG_DESCRIPTION="Provides DKIM signing for Postfix server"
@@ -60,8 +57,6 @@ ARG ARG_LICENSES=GPL-3.0-or-later
 LABEL org.opencontainers.image.created=$ARG_CREATED
 LABEL org.opencontainers.image.url=$ARG_URL
 LABEL org.opencontainers.image.source=$ARG_SOURCE
-LABEL org.opencontainers.image.version=$ARG_VERSION
-LABEL org.opencontainers.image.revision=$ARG_REVISION
 LABEL org.opencontainers.image.vendor=$ARG_VENDOR
 LABEL org.opencontainers.image.title=$ARG_TITLE
 LABEL org.opencontainers.image.description=$ARG_DESCRIPTION
