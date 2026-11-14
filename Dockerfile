@@ -1,4 +1,4 @@
-FROM technicalguru/php:8.5
+FROM technicalguru/php:8.5.12-apache-2.4.71.0
 LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y --no-install-recommends \
