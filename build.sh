@@ -1,7 +1,7 @@
 docker buildx build \
      --progress=plain \
      -t technicalguru/mailserver-opendkim:latest \
-     -t technicalguru/mailserver-opendkim:2.11.0.11 \
+     -t technicalguru/mailserver-opendkim:2.11.0.13 \
      -t technicalguru/mailserver-opendkim:2.11.0 \
      -t technicalguru/mailserver-opendkim:2.11 \
      -t technicalguru/mailserver-opendkim:2 \
